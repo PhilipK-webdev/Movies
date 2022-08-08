@@ -21,6 +21,13 @@ router.get("/api/movie/:id", async (req, res) => {
   res.json(movies).status(200);
 });
 
-
+router.get("/api/movie/:id", async (req, res) => {
+  const data = await axios({
+    method: "GET",
+    url: `https://omdbapi.com/?i=${req.params.id}&type=movie&apikey=${process.env.API_KEY}`,
+  });
+  const movies = await data.data;
+  res.json(movies).status(200);
+});
 
 module.exports = router;
