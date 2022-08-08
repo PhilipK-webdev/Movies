@@ -21,4 +21,6 @@ router.get("/api/movie/:id", async (req, res) => {
   res.json(movies).status(200);
 });
 
+
+
 module.exports = router;
