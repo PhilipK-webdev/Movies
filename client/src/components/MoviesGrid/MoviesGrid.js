@@ -1,19 +1,24 @@
 import React from "react";
 import Movie from "../Movie/Movie";
 import S from "./style";
-function MoviesGrid() {
+import { useMovieContext } from "../../hooks/useMovieContext";
+function MoviesGrid({ movies }) {
+  const [getters, setters] = useMovieContext();
   return (
     <S.MoviesContainer>
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
+      {movies.length > 0 &&
+        movies.map((movie) => {
+          return (
+            <Movie
+              key={movie.imdbID}
+              title={movie.title}
+              rating={movie.imdbRating}
+              image={movie.poster}
+              plot={movie.plot}
+              // onMovieClick={showMovieInfo}
+            />
+          );
+        })}
     </S.MoviesContainer>
   );
 }

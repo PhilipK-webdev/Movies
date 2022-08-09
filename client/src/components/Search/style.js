@@ -27,8 +27,7 @@ const TextInput = styled.input`
   padding-left: 40px;
   border-radius: 10px;
   margin: 1rem 1rem;
-  background-color: #4c4c4c;
-  color: white;
+  color: black;
   font-size: 1rem;
   &:focus {
     outline: none;
@@ -36,7 +35,7 @@ const TextInput = styled.input`
   }
   &::placeholder {
     font-size: 1.2rem;
-    color: white;
+    color: black;
   }
 
   @media only screen and (max-width: 56.25em) {

@@ -1,18 +1,12 @@
-import { useEffect } from "react";
+import MovieProvider from "./hooks/useMovieContext";
 import MainPage from "./pages/MainPage";
 function App() {
-  // useEffect(() => {
-  //   const getMovies = async () => {
-  //     const response = await fetch(`/api/movies/`);
-  //     const data = await response.json();
-  //     console.log("data", data);
-  //   };
-  //   getMovies();
-  // }, []);
   return (
-    <div>
-      <MainPage />
-    </div>
+    <MovieProvider>
+      <div>
+        <MainPage />
+      </div>
+    </MovieProvider>
   );
 }
 

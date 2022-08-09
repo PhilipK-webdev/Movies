@@ -22,7 +22,7 @@ router.get("/api/movies", async (req, res) => {
     promises.push(
       axios({
         method: "GET",
-        url: `https://omdbapi.com/?t=${MOVIES[index]}&type=movie&apikey=${process.env.API_KEY_OMDB}`,
+        url: `https://omdbapi.com/?t=${MOVIES[index]}&type=movie&plot=short&apikey=${process.env.API_KEY_OMDB}`,
       })
     );
   }
