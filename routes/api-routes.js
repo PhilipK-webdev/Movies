@@ -37,6 +37,7 @@ router.get("/api/movies", async (req, res) => {
       };
       movieArray.push(movieObject);
     });
+    console.log(movieArray);
     res.json(movieArray).status(200);
   });
 });
