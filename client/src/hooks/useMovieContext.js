@@ -1,4 +1,9 @@
-import React, { createContext, useContext, useEffect } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+} from "react";
 import { useLocalStorage } from ".";
 const MovieContext = createContext();
 const UpdateMovieContext = createContext();
@@ -11,22 +16,21 @@ function MovieProvider({ children }) {
     "movies",
     []
   );
-
+  const getMovies = useCallback(async () => {
+    const response = await fetch(`/api/movies/`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    if (response.ok) {
+      const moviesResponse = await response.json();
+      setMoviesLocalStorage(moviesResponse.data);
+    }
+  }, []);
   useEffect(() => {
-    const getMovies = async () => {
-      const response = await fetch(`/api/movies/`, {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-      if (response.ok) {
-        const moviesResponse = await response.json();
-        setMoviesLocalStorage(moviesResponse.data);
-      }
-    };
-    if (!moviesLocalStorage.length) getMovies();
-  }, [moviesLocalStorage]);
+    getMovies();
+  }, [getMovies]);
   return (
     <MovieContext.Provider value={{ moviesLocalStorage }}>
       <UpdateMovieContext.Provider value={{ setMoviesLocalStorage }}>
