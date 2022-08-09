@@ -14,7 +14,12 @@ function MovieProvider({ children }) {
 
   useEffect(() => {
     const getMovies = async () => {
-      const response = await fetch(`/api/movies/`);
+      const response = await fetch(`/api/movies/`, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
       if (response.ok) {
         const data = await response.json();
         setMoviesLocalStorage(data);
