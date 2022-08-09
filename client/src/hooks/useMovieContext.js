@@ -21,12 +21,12 @@ function MovieProvider({ children }) {
         },
       });
       if (response.ok) {
-        const data = await response.json();
-        setMoviesLocalStorage(data);
+        const moviesResponse = await response.json();
+        setMoviesLocalStorage(moviesResponse.data);
       }
     };
     if (!moviesLocalStorage.length) getMovies();
-  }, []);
+  }, [moviesLocalStorage]);
   return (
     <MovieContext.Provider value={{ moviesLocalStorage }}>
       <UpdateMovieContext.Provider value={{ setMoviesLocalStorage }}>
