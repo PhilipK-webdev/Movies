@@ -4,10 +4,11 @@ import S from "./style";
 import { useMovieContext } from "../../hooks/useMovieContext";
 function MoviesGrid({ movies }) {
   const [getters, setters] = useMovieContext();
+  console.log("movies", movies);
   return (
     <S.MoviesContainer>
       {Object.keys(movies).length > 0 &&
-        movies.data.map((movie) => {
+        movies.map((movie) => {
           return (
             <Movie
               key={movie.imdbID}

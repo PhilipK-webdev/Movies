@@ -38,7 +38,10 @@ router.get("/api/movies", async (req, res) => {
       movieArray.push(movieObject);
     });
     const data = { data: movieArray };
-    res.json(data).status(200);
+    res.status(200).json({
+      success: true,
+      result: data.data,
+    });
   });
 });
 router.get("/api/movies/:movie/:page", async (req, res) => {

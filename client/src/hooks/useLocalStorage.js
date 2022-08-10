@@ -25,7 +25,8 @@ function useStorage(key, defaultValue, storageObject) {
       });
       if (response.ok) {
         const moviesResponse = await response.json();
-        setValue(moviesResponse);
+        console.log("mov", moviesResponse);
+        setValue(moviesResponse.result);
       }
     };
     if (value === undefined) {
