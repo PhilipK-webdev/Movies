@@ -15,32 +15,38 @@ const Card = styled.div`
   flex-grow: ${(props) => (props.index === 1 || props.index === 5 ? "0" : "1")};
   @media only screen and (max-width: 118.75em) {
     height: 25vh;
-    flex-grow: 0;
     width: 16vw;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
+    margin-top: 1rem;
   }
-  @media only screen and (max-width: 88.875em) {
-    height: 40vh;
-    flex-grow: 0;
-    width: 22vw;
+  @media only screen and (max-width: 106.25em) {
+    height: 25vh;
+    width: 18.5vw;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
-  @media only screen and (max-width: 70.25em) {
+  @media only screen and (max-width: 88.875em) {
     height: 30vh;
-    flex-grow: 0;
+    width: 18.5vw;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
+  @media only screen and (max-width: 75.25em) {
+    height: 20vh;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0rem;
     margin-top: 1rem;
   }
   @media only screen and (max-width: 55.375em) {
     height: 30vh;
-    flex-grow: 0;
     width: 38vw;
     margin-left: auto;
     margin-right: auto;
@@ -62,6 +68,18 @@ const CardTitle = styled.header`
   align-content: center;
   padding: 0.3rem;
   font-size: 0.8rem;
+  @media only screen and (max-width: 106.5625em) {
+    font-size: 0.9rem;
+  }
+  @media only screen and (max-width: 88.875em) {
+    font-size: 1rem;
+  }
+  @media only screen and (max-width: 68.75em) {
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 55.375em) {
+    font-size: 1rem;
+  }
 `;
 
 const CardInfo = styled.section`
@@ -87,20 +105,33 @@ const CardInfo = styled.section`
   }
   @media only screen and (max-width: 118.75em) {
     width: 5rem;
-    height: 12rem;
+    height: 18rem;
   }
   @media only screen and (max-width: 106.5625em) {
-    width: 5rem;
-    height: 12rem;
+    width: 8rem;
+    height: 20rem;
   }
   @media only screen and (max-width: 88.875em) {
-    height: auto;
+    height: 18rem;
     width: 8rem;
     overflow: auto;
   }
+  @media only screen and (max-width: 75.25em) {
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    align-content: center;
+    overflow: hidden;
+    margin: 0;
+    font-size: 1rem;
+  }
+  @media only screen and (max-width: 68.75em) {
+    height: 10vh;
+    width: auto;
+    font-size: 1.3rem;
+  }
   @media only screen and (max-width: 55.375em) {
-    height: 20vh;
-    // overflow: auto;
+    height: auto;
   }
 `;
 const CardRating = styled.div`
@@ -109,9 +140,13 @@ const CardRating = styled.div`
   align-content: center;
   padding: 0.3rem;
   font-size: 1rem;
-  @media only screen and (max-width: 88.875em) {
-    align-self: stretch;
+  @media only screen and (max-width: 68.75em) {
     margin-top: 3rem;
+    font-size: 1.5rem;
+  }
+  @media only screen and (max-width: 55.375em) {
+    margin-top: auto;
+    font-size: 1.5rem;
   }
 `;
 
@@ -120,6 +155,10 @@ const CardImage = styled.img`
   object-fit: contain;
   @media only screen and (max-width: 118.75em) {
     width: 10vw;
+    object-fit: fill;
+  }
+  @media only screen and (max-width: 75.25em) {
+    width: 15rem;
     object-fit: fill;
   }
   @media only screen and (max-width: 56.25em) {

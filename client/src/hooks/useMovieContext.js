@@ -17,7 +17,7 @@ function MovieProvider({ children }) {
     []
   );
   const getMovies = useCallback(async () => {
-    const response = await fetch(`/api/movies/`, {
+    const response = await fetch(`/api/movies`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -27,7 +27,8 @@ function MovieProvider({ children }) {
       const moviesResponse = await response.json();
       setMoviesLocalStorage(moviesResponse.data);
     }
-  }, []);
+  }, [setMoviesLocalStorage]);
+
   useEffect(() => {
     getMovies();
   }, [getMovies]);
