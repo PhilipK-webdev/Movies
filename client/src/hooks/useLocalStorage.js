@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 export function useLocalStorage(key, defaultValue) {
   return useStorage(key, defaultValue, window.localStorage);
@@ -26,7 +26,7 @@ function useStorage(key, defaultValue, storageObject) {
       if (response.ok) {
         const moviesResponse = await response.json();
         console.log("mov", moviesResponse);
-        setValue(moviesResponse.result);
+        setValue(moviesResponse.data);
       }
     };
     if (value === undefined) {
