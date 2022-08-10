@@ -16,22 +16,7 @@ function MovieProvider({ children }) {
     "movies",
     []
   );
-  const getMovies = useCallback(async () => {
-    const response = await fetch(`/api/movies`, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    if (response.ok) {
-      const moviesResponse = await response.json();
-      setMoviesLocalStorage(moviesResponse.data);
-    }
-  }, [setMoviesLocalStorage]);
 
-  useEffect(() => {
-    getMovies();
-  }, [getMovies]);
   return (
     <MovieContext.Provider value={{ moviesLocalStorage }}>
       <UpdateMovieContext.Provider value={{ setMoviesLocalStorage }}>
