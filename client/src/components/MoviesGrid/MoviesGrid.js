@@ -1,15 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import Movie from "../Movie/Movie";
 import { useMovieContext } from "../../hooks/useMovieContext";
 import S from "./style";
-function MoviesGrid({ showMovieInfo }) {
+import Modal from "../Modal/Modal";
+const movieDataCache = new Map();
+function MoviesGrid() {
   const [getters, setters] = useMovieContext();
   const { movies } = getters;
+  const [movieData, setMovieData] = useState(false);
+
+  const showMovieInfo = async (imdbID) => {
+    let data;
+    const _response = {};
+    let movieDataCopy = [];
+    if (movieDataCache.has(imdbID)) {
+      data = movieDataCache.get(imdbID);
+      setMovieData(data);
+      _response.ok = true;
+    } else {
+      try {
+        data = await fetch(`/api/movie/${imdbID}`);
+        _response.ok = data.ok;
+        movieDataCopy = await data.json();
+        movieDataCache.set(imdbID, movieDataCopy);
+        if (_response.ok) {
+          setMovieData(movieDataCopy);
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
+    }
+  };
   return (
     <S.MoviesContainer>
+      {movieData && (
+        <Modal setOpenModal={() => setMovieData(null)} data={movieData} />
+      )}
       {Object.keys(movies).length > 0 &&
         movies.map((movie) => {
-          console.log("movie", movie);
           return (
             <Movie
               key={movie.imdbID}

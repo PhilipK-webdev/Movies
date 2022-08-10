@@ -5,7 +5,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 20rem;
+  width: 18rem;
   background: #0d0d0d;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -91,6 +91,7 @@ const CardTitle = styled.header`
 const Div = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 const CardInfo = styled.section`
   font-size: 1rem;
@@ -141,19 +142,17 @@ const CardRating = styled.div`
 const CardImage = styled.img`
   width: 100%;
   height: 14rem;
-  object-fit: fill;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
   @media only screen and (max-width: 118.75em) {
     height: 8rem;
-    object-fit: fill;
   }
   @media only screen and (max-width: 75.25em) {
     height: 8rem;
-    object-fit: fill;
   }
   @media only screen and (max-width: 56.25em) {
     height: 8rem;
-    object-fit: fill;
   }
   @media only screen and (max-width: 37.5em) {
     height: 8rem;
@@ -161,7 +160,7 @@ const CardImage = styled.img`
 `;
 
 const BtnReadMore = styled.button`
-  margin-left: 3rem;
+  margin-left: 1rem;
   border: none;
   background: white;
   color: black;

@@ -10,6 +10,7 @@ import S from "./style";
 function MainPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(() => 1);
+
   const [getters, setters] = useMovieContext();
   const { setMovies } = setters;
   const [moviesFromLocalStorage, setMoviesFromLocalStorage] = useLocalStorage(
@@ -51,9 +52,6 @@ function MainPage() {
     }
   };
 
-  const showMovieInfo = (imdbID) => {
-    console.log("imdbID", imdbID);
-  };
   return (
     <S.Container>
       <Header />
@@ -72,7 +70,7 @@ function MainPage() {
         onSubmit={(e) => findMovie(e)}
       />
       <S.Main>
-        <MoviesGrid showMovieInfo={showMovieInfo} />
+        <MoviesGrid />
       </S.Main>
       <Footer />
     </S.Container>
