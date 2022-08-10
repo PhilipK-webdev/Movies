@@ -17,15 +17,9 @@ const allowCrossDomain = (req, res, next) => {
 };
 
 app.use(bodyParser.json({ limit: "100mb" }));
-app.use(allowCrossDomain);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    credentials: true,
-    origin: true,
-  })
-);
+app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
