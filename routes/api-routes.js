@@ -34,11 +34,11 @@ router.get("/api/movies", async (req, res) => {
     const values = await Promise.all(promises);
     values.forEach((value, index) => {
       const movieObject = {
-        title: value.data.Title,
+        Title: value.data.Title,
         imdbRating: value.data.imdbRating,
         imdbID: value.data.imdbID,
-        poster: value.data.Poster,
-        plot: value.data.Plot,
+        Poster: value.data.Poster,
+        Year: value.data.Year,
       };
       movieArray.push(movieObject);
     });
@@ -58,8 +58,8 @@ router.get("/api/movies/:movie/:page", async (req, res) => {
     },
     url: `https://omdbapi.com/?s=${movie}&type=movie&apikey=${process.env.API_KEY_OMDB}&page=${page}`,
   });
-  const movies = await data.data;
-  res.json(movies).status(200);
+  const movies = { ...(await data.data), status: await data.status };
+  res.status(await data.status).json(movies);
 });
 
 router.get("/api/movie/:id", async (req, res) => {

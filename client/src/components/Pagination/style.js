@@ -7,14 +7,14 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
+  margin: 10px;
 `;
 
 const Page = styled.span`
   margin: 0 5px;
-  text-decoration: ${(props) =>
-    props.pageNumber === props.currenPage ? "unset" : "underline"};
   font-size: 1rem;
   text-decoration: underline;
+  cursor: pointer;
 `;
 
 export default { Container, Page };

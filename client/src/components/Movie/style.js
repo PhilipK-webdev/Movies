@@ -1,100 +1,100 @@
 import styled from "styled-components";
 
 const Card = styled.div`
-  height: 25vh;
+  height: 18rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-content: center;
-  width: 15vw;
-  background: #f2f5f8;
+  width: 20rem;
+  background: #0d0d0d;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   margin-bottom: 1rem;
   margin-top: 1rem;
   margin-right: 5px;
+  color: white;
   flex-grow: ${(props) => (props.index === 1 || props.index === 5 ? "0" : "1")};
+  cursor: pointer;
   @media only screen and (max-width: 118.75em) {
-    height: 25vh;
-    width: 16vw;
+    height: 13rem;
+    width: 18rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
   @media only screen and (max-width: 106.25em) {
-    height: 25vh;
-    width: 18.5vw;
+    // height: 25vh;
+    width: 15rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
   @media only screen and (max-width: 88.875em) {
-    height: 30vh;
-    width: 18.5vw;
+    height: 13rem;
+    width: 13rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2rem;
     margin-top: 1rem;
   }
   @media only screen and (max-width: 75.25em) {
-    height: 20vh;
-    width: auto;
+    height: 13rem;
+    width: 10rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 0rem;
+    margin-bottom: -1rem;
     margin-top: 1rem;
   }
   @media only screen and (max-width: 55.375em) {
-    height: 30vh;
-    width: 38vw;
+    height: 13rem;
+    width: 10rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1rem;
+    margin-bottom: -1rem;
     margin-top: 1rem;
   }
 `;
 const ImageContainer = styled.div`
-  display: flex;
+  display: inline-block;
 `;
 const CardContainer = styled.div`
   display: flex;
+  height: 3rem;
+  padding: 0.5rem;
+  justify-content: center;
   flex-direction: column;
-  flex: 55%;
 `;
 const CardTitle = styled.header`
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  padding: 0.3rem;
   font-size: 0.8rem;
+  font-weight: bold;
+  font-weight: bold;
   @media only screen and (max-width: 106.5625em) {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
   @media only screen and (max-width: 88.875em) {
-    font-size: 1rem;
+    width: 10rem;
+    font-size: 0.7rem;
   }
   @media only screen and (max-width: 68.75em) {
-    font-size: 1.5rem;
+    width: 10rem;
+    font-size: 0.7rem;
   }
   @media only screen and (max-width: 55.375em) {
-    font-size: 1rem;
+    font-size: 0.7rem;
+  }
+  @media only screen and (max-width: 37.5em) {
+    font-size: 0.7rem;
   }
 `;
-
-const CardInfo = styled.section`
+const Div = styled.div`
   display: flex;
-  justify-content: center;
-  align-content: center;
-  padding: 0.3rem;
-  font-size: 0.7rem;
-  width: 7rem;
-  height: 17rem;
-  margin-left: auto;
-  margin-right: auto;
-  overflow-y: auto;
-  overflow-x: hidden;
-
+  align-items: center;
+`;
+const CardInfo = styled.section`
+  font-size: 1rem;
+  margin-right: 1rem;
   &::-webkit-scrollbar {
     width: 0.3rem;
     border: 1px solid grey;
@@ -103,71 +103,75 @@ const CardInfo = styled.section`
   &::-webkit-scrollbar-thumb {
     background: rgb(126, 134, 150);
   }
-  @media only screen and (max-width: 118.75em) {
-    width: 5rem;
-    height: 18rem;
-  }
-  @media only screen and (max-width: 106.5625em) {
-    width: 8rem;
-    height: 20rem;
-  }
-  @media only screen and (max-width: 88.875em) {
-    height: 18rem;
-    width: 8rem;
-    overflow: auto;
-  }
+  // @media only screen and (max-width: 118.75em) {
+  //   width: 5rem;
+  //   height: 18rem;
+  // }
+  // @media only screen and (max-width: 106.5625em) {
+  //   width: 8rem;
+  //   height: 20rem;
+  // }
+  // @media only screen and (max-width: 88.875em) {
+  //   height: 18rem;
+  //   width: 8rem;
+  //   overflow: auto;
+  // }
   @media only screen and (max-width: 75.25em) {
-    width: 20rem;
-    height: 20rem;
-    display: flex;
-    align-content: center;
-    overflow: hidden;
-    margin: 0;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
-  @media only screen and (max-width: 68.75em) {
-    height: 10vh;
-    width: auto;
-    font-size: 1.3rem;
-  }
-  @media only screen and (max-width: 55.375em) {
-    height: auto;
-  }
+  // @media only screen and (max-width: 68.75em) {
+  //   height: 10vh;
+  //   width: auto;
+  //   font-size: 1rem;
+  // }
+  // @media only screen and (max-width: 55.375em) {
+  //   height: auto;
+  // }
 `;
 const CardRating = styled.div`
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  padding: 0.3rem;
   font-size: 1rem;
   @media only screen and (max-width: 68.75em) {
-    margin-top: 3rem;
-    font-size: 1.5rem;
+    font-size: 0.8rem;
   }
-  @media only screen and (max-width: 55.375em) {
-    margin-top: auto;
-    font-size: 1.5rem;
-  }
+  // @media only screen and (max-width: 55.375em) {
+  //   font-size: 0.8rem;
+  // }
 `;
 
 const CardImage = styled.img`
-  min-height: 20vh;
-  object-fit: contain;
+  width: 100%;
+  height: 14rem;
+  object-fit: fill;
+
   @media only screen and (max-width: 118.75em) {
-    width: 10vw;
+    height: 8rem;
     object-fit: fill;
   }
   @media only screen and (max-width: 75.25em) {
-    width: 15rem;
+    height: 8rem;
     object-fit: fill;
   }
   @media only screen and (max-width: 56.25em) {
-    width: 15vw;
+    height: 8rem;
     object-fit: fill;
   }
   @media only screen and (max-width: 37.5em) {
-    height: auto;
+    height: 8rem;
   }
+`;
+
+const BtnReadMore = styled.button`
+  margin-left: 3rem;
+  border: none;
+  background: white;
+  color: black;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+  height: 1.5rem;
 `;
 export default {
   Card,
@@ -177,4 +181,6 @@ export default {
   CardInfo,
   CardRating,
   CardImage,
+  Div,
+  BtnReadMore,
 };

@@ -25,7 +25,6 @@ function useStorage(key, defaultValue, storageObject) {
       });
       if (response.ok) {
         const moviesResponse = await response.json();
-        console.log("mov", moviesResponse);
         setValue(moviesResponse.data);
       }
     };

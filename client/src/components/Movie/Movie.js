@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import S from "./style";
-function Movie({ movieId, title, rating, image, plot, onMovieClick }) {
+import defaultImg from "../../assets/no-picture.jpg";
+function Movie({ imdbID, title, rating, image, year, onMovieClick }) {
+  const [imgSrc, setImgSrc] = useState(image);
+  const onError = () => setImgSrc(defaultImg);
   return (
-    <S.Card>
+    <S.Card onClick={() => onMovieClick(imdbID)}>
       <S.ImageContainer>
-        <S.CardImage src={image} />
+        <S.CardImage src={imgSrc ? imgSrc : defaultImg} onError={onError} />
       </S.ImageContainer>
       <S.CardContainer>
         <S.CardTitle>{title}</S.CardTitle>
-        <S.CardInfo>{plot}</S.CardInfo>
-        <S.CardRating>Rating: {rating}</S.CardRating>
+        <S.Div>
+          {year && <S.CardInfo>Year: {year}</S.CardInfo>}
+          {rating && <S.CardRating>Rating: {rating}</S.CardRating>}
+          <S.BtnReadMore onClick={() => onMovieClick(imdbID)}>
+            Read more
+          </S.BtnReadMore>
+        </S.Div>
       </S.CardContainer>
     </S.Card>
   );

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 85vw;
-  height: 10vh;
+  height: 5vh;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -17,7 +17,6 @@ const From = styled.form`
     align-items: center;
     flex-direction: row;
     height: 13vh;
-    margin-top: 1.5rem;
   }
 `;
 const TextInput = styled.input`
@@ -39,9 +38,8 @@ const TextInput = styled.input`
   }
 
   @media only screen and (max-width: 56.25em) {
-    margin: 0;
-    width: 50vw;
-    margin-right: 1rem;
+    // width: 50vw;
+    // margin-right: 1rem;
   }
 `;
 const Button = styled.input`
