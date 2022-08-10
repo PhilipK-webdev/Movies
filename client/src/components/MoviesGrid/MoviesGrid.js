@@ -6,7 +6,7 @@ function MoviesGrid({ movies }) {
   const [getters, setters] = useMovieContext();
   return (
     <S.MoviesContainer>
-      {movies.data.length > 0 &&
+      {Object.keys(movies).length > 0 &&
         movies.data.map((movie) => {
           return (
             <Movie

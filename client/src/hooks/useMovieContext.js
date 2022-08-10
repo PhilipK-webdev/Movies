@@ -14,7 +14,7 @@ export function useMovieContext() {
 function MovieProvider({ children }) {
   const [moviesLocalStorage, setMoviesLocalStorage] = useLocalStorage(
     "movies",
-    []
+    {}
   );
 
   return (

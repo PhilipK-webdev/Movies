@@ -14,27 +14,28 @@ function useStorage(key, defaultValue, storageObject) {
       return defaultValue;
     }
   });
-  const getMovies = useCallback(async () => {
-    const response = await fetch(`/api/movies`, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    if (response.ok) {
-      const moviesResponse = await response.json();
-      setValue(moviesResponse);
-    }
-  }, []);
+
   useEffect(() => {
+    const getMovies = async () => {
+      const response = await fetch(`/api/movies`, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+      if (response.ok) {
+        const moviesResponse = await response.json();
+        setValue(moviesResponse);
+      }
+    };
     if (value === undefined) {
       return storageObject.removeItem(key);
     }
-    if (!value.length) {
+    if (Object.keys(value).length === 0) {
       getMovies();
     }
     storageObject.setItem(key, JSON.stringify(value));
-  }, [key, value, storageObject]);
+  }, [key, value, storageObject, setValue]);
 
   return [value, setValue];
 }
