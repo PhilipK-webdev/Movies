@@ -15,6 +15,9 @@ const Card = styled.div`
   flex-grow: ${(props) => (props.index === 1 || props.index === 5 ? "0" : "1")};
   cursor: pointer;
   @media only screen and (max-width: 84.375em) {
+    height: 28vh;
+  }
+  @media only screen and (max-width: 75.25em) {
     height: 30vh;
   }
   @media only screen and (max-width: 48em) {
@@ -33,19 +36,22 @@ const CardContainer = styled.div`
   height: 14vh;
   justify-content: center;
   flex-direction: column;
-  padding: 10px;
+  padding: 5px;
 `;
 const CardTitle = styled.header`
   font-size: 0.8rem;
   font-weight: bold;
-  font-weight: bold;
-  @media only screen and (max-width: 90em) {
+  margin-top: 3vh;
+  @media only screen and (max-width: 88.875em) {
     font-size: 10px;
-    width: 7vw;
+  }
+  @media only screen and (max-width: 75.25em) {
+    margin-top: 5vh;
   }
   @media only screen and (max-width: 48em) {
     font-size: 10px;
     width: 10vw;
+    margin-top: 1vh;
   }
   @media only screen and (max-width: 37.5em) {
     font-size: 13px;
@@ -56,6 +62,7 @@ const Div = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 3px;
 `;
 const CardInfo = styled.section`
   font-size: 0.8rem;
@@ -71,6 +78,7 @@ const CardInfo = styled.section`
   }
   @media only screen and (max-width: 48em) {
     font-size: 8px;
+    min-height: 4vh;
   }
   @media only screen and (max-width: 37.5em) {
     font-size: 10px;
@@ -85,9 +93,12 @@ const CardRating = styled.div`
     font-size: 10px;
     min-height: 14vh;
   }
+  @media only screen and (max-width: 75.25em) {
+    min-height: 14vh;
+  }
   @media only screen and (max-width: 48em) {
     width: 7vw;
-    margin-right: 0px;
+    min-height: 4vh;
   }
 `;
 
@@ -98,13 +109,13 @@ const CardImage = styled.img`
   border-top-right-radius: 10px;
 
   @media only screen and (max-width: 88.875em) {
-    height: 20vh;
+    height: 18vh;
   }
   @media only screen and (max-width: 75.25em) {
     height: 15vh;
   }
   @media only screen and (max-width: 48em) {
-    height: 18vh;
+    height: 12vh;
   }
   @media only screen and (max-width: 37.5em) {
     height: 15vh;
@@ -116,15 +127,12 @@ const BtnReadMore = styled.button`
   background: transparent;
   color: white;
   display: flex;
-  justify-content: flex-end;
+  align-items: flex-end;
   cursor: pointer;
   border-radius: 5px;
   font-weight: 600;
-  margin-top: 2px;
-  margin-right: -7px;
   @media only screen and (max-width: 88.875em) {
     font-size: 10px;
-    margin-top: 3px;
   }
   @media only screen and (max-width: 37.5em) {
     font-size: 15px;
