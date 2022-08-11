@@ -11,7 +11,7 @@ const Container = styled.div`
   }
   @media only screen and (max-width: 106.25em) {
   }
-  @media only screen and (max-width: 88.875em) {
+  @media only screen and (max-width: 90em) {
     height: 4vh;
     margin-top: -3vh;
   }
@@ -20,6 +20,7 @@ const Container = styled.div`
   @media only screen and (max-width: 55.375em) {
   }
   @media only screen and (max-width: 37.5em) {
+    width: 50vw;
   }
 `;
 
@@ -56,22 +57,21 @@ const TextInput = styled.input`
     font-size: 1.2rem;
     color: black;
   }
-
-  @media only screen and (max-width: 118.75em) {
-  }
-  @media only screen and (max-width: 106.25em) {
-  }
   @media only screen and (max-width: 88.875em) {
     &::placeholder {
       font-size: 15px;
       color: black;
     }
   }
-  @media only screen and (max-width: 75.25em) {
-  }
-  @media only screen and (max-width: 55.375em) {
-  }
   @media only screen and (max-width: 37.5em) {
+    height: 3vh;
+    width: 30vw;
+    font-size: 10px;
+    padding-left: 0px;
+    &::placeholder {
+      font-size: 10px;
+      color: black;
+    }
   }
 `;
 const Button = styled.button`
@@ -87,19 +87,13 @@ const Button = styled.button`
   display: flex;
   justify-content: ${(props) => (props.boolean ? "space-between" : "center")};
   align-items: center;
-  @media only screen and (max-width: 118.75em) {
-  }
-  @media only screen and (max-width: 106.25em) {
-  }
   @media only screen and (max-width: 88.875em) {
     font-size: 12px;
     width: 6vw;
   }
-  @media only screen and (max-width: 75.25em) {
-  }
-  @media only screen and (max-width: 55.375em) {
-  }
   @media only screen and (max-width: 37.5em) {
+    width: 20vw;
+    height: 3vh;
   }
 `;
 

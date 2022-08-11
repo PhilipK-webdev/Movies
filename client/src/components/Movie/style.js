@@ -14,17 +14,15 @@ const Card = styled.div`
   color: white;
   flex-grow: ${(props) => (props.index === 1 || props.index === 5 ? "0" : "1")};
   cursor: pointer;
-  @media only screen and (max-width: 118.75em) {
+  @media only screen and (max-width: 84.375em) {
+    height: 28vh;
   }
-  @media only screen and (max-width: 106.25em) {
-  }
-  @media only screen and (max-width: 88.875em) {
-  }
-  @media only screen and (max-width: 75.25em) {
-  }
-  @media only screen and (max-width: 55.375em) {
+  @media only screen and (max-width: 48em) {
+    height: 30vh;
+    width: 12vw;
   }
   @media only screen and (max-width: 37.5em) {
+    width: auto;
   }
 `;
 const ImageContainer = styled.div`
@@ -41,19 +39,17 @@ const CardTitle = styled.header`
   font-size: 0.8rem;
   font-weight: bold;
   font-weight: bold;
-  @media only screen and (max-width: 118.75em) {
-  }
-  @media only screen and (max-width: 106.25em) {
-  }
-  @media only screen and (max-width: 88.875em) {
+  @media only screen and (max-width: 90em) {
     font-size: 10px;
     width: 7vw;
   }
-  @media only screen and (max-width: 75.25em) {
-  }
-  @media only screen and (max-width: 55.375em) {
+  @media only screen and (max-width: 48em) {
+    font-size: 10px;
+    width: 10vw;
   }
   @media only screen and (max-width: 37.5em) {
+    font-size: 13px;
+    width: 20vw;
   }
 `;
 const Div = styled.div`
@@ -68,36 +64,26 @@ const CardInfo = styled.section`
   width: 5vw;
   display: flex;
   align-self: center;
-  @media only screen and (max-width: 118.75em) {
-  }
-  @media only screen and (max-width: 106.25em) {
-  }
   @media only screen and (max-width: 88.875em) {
     font-size: 10px;
   }
-  @media only screen and (max-width: 75.25em) {
-  }
-  @media only screen and (max-width: 55.375em) {
+  @media only screen and (max-width: 48em) {
+    font-size: 8px;
   }
   @media only screen and (max-width: 37.5em) {
+    font-size: 10px;
   }
 `;
 const CardRating = styled.div`
   font-size: 0.8rem;
   width: 5vw;
   margin-right: 3px;
-  @media only screen and (max-width: 118.75em) {
-  }
-  @media only screen and (max-width: 106.25em) {
-  }
   @media only screen and (max-width: 88.875em) {
     font-size: 10px;
   }
-  @media only screen and (max-width: 75.25em) {
-  }
-  @media only screen and (max-width: 55.375em) {
-  }
-  @media only screen and (max-width: 37.5em) {
+  @media only screen and (max-width: 48em) {
+    width: 7vw;
+    margin-right: 0px;
   }
 `;
 
@@ -107,18 +93,14 @@ const CardImage = styled.img`
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 
-  @media only screen and (max-width: 118.75em) {
-  }
-  @media only screen and (max-width: 106.25em) {
-  }
   @media only screen and (max-width: 88.875em) {
     height: 20vh;
   }
-  @media only screen and (max-width: 75.25em) {
-  }
-  @media only screen and (max-width: 55.375em) {
+  @media only screen and (max-width: 48em) {
+    height: 18vh;
   }
   @media only screen and (max-width: 37.5em) {
+    height: 15vh;
   }
 `;
 
@@ -136,6 +118,9 @@ const BtnReadMore = styled.button`
   @media only screen and (max-width: 88.875em) {
     font-size: 10px;
     margin-top: 3px;
+  }
+  @media only screen and (max-width: 37.5em) {
+    font-size: 15px;
   }
 `;
 

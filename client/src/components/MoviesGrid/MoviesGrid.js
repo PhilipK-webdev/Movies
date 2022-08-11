@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Movie from "../Movie/Movie";
 import { useMovieContext } from "../../hooks/useMovieContext";
 import S from "./style";
@@ -9,6 +9,16 @@ function MoviesGrid() {
   const [getters, setters] = useMovieContext();
   const { movies } = getters;
   const [movieData, setMovieData] = useState(false);
+
+  useEffect(() => {
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        setMovieData(null);
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
 
   const showMovieInfo = async (imdbID) => {
     let data;

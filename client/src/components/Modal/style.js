@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-const Modal = styled.div`
+const Modal = styled.div.attrs(({ ref }) => ({
+  ref: ref,
+}))`
   width: 100vw;
   height: 100vh;
   background-color: #000000c4;
@@ -22,6 +24,9 @@ const Container = styled.div`
   padding: 25px;
   & > img {
     height: 490px;
+  }
+  @media only screen and (max-width: 55.375em) {
+    width: 92vw;
   }
 `;
 
@@ -49,6 +54,10 @@ const ModalImage = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 60vh;
+  @media only screen and (max-width: 37.5em) {
+    width: 100%;
+    height: 60vh;
+  }
 `;
 const Title = styled.div`
   font: normal normal bold 2.8125rem/2.8125rem Arial;
@@ -86,6 +95,7 @@ const Button = styled.button`
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 10px;
   @media only screen and (max-width: 88.875em) {
     font-size: 1rem;
   }

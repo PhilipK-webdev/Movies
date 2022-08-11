@@ -35,18 +35,17 @@ const Main = styled.div`
   &::-webkit-scrollbar-thumb {
     background: rgb(126, 134, 150);
   }
-  @media only screen and (max-width: 118.75em) {
-  }
-  @media only screen and (max-width: 106.25em) {
-  }
-  @media only screen and (max-width: 88.875em) {
+
+  @media only screen and (max-width: 90em) {
     height: 83vh;
+    width: 85vw;
   }
-  @media only screen and (max-width: 75.25em) {
-  }
-  @media only screen and (max-width: 55.375em) {
+  @media only screen and (max-width: 59.375em) {
+    width: 85vw;
   }
   @media only screen and (max-width: 37.5em) {
+    overflow-y: scroll;
+    width: 51vw;
   }
 `;
 

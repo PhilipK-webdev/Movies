@@ -24,76 +24,32 @@ function MainPage() {
     {}
   );
 
-  function cache(map, url) {}
-
-  const findMovie = async (e) => {
-    e.preventDefault();
+  async function cache(map, url, value) {
     let data;
     const _response = {};
     let movieDataCopy = [];
-    if (searchTerm) {
-      setIsLoading(true);
-      if (movieDataCache.has(searchTerm)) {
-        data = movieDataCache.get(searchTerm);
-        const page = pageCache.get("page");
-        setMovies(data);
-        setPage(page);
-        _response.ok = true;
-      } else {
-        try {
-          data = await fetch(`/api/movies/${searchTerm}/${page}`, {
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-          });
-          const { Search, totalResults, Response, Error } = await data.json();
-          if (Response === "True") {
-            _response.ok = data.ok;
-            movieDataCopy = Search;
-            movieDataCache.set(searchTerm, movieDataCopy);
-            const count = Math.ceil(Number(totalResults) / 10);
-            setPage(count);
-            pageCache.set("page", count);
-            setMovies([...Search]);
-          } else {
-            isError(Error);
-            setTimeout(() => {
-              isError("");
-            }, 2000);
-            setMovies([...moviesFromLocalStorage]);
-            setSearchTerm("");
-            setPage(1);
-          }
-        } catch (error) {
-          console.log("error", error);
-        }
-      }
-    }
-    setIsLoading(false);
-    setIsDisabled(true);
-  };
-
-  const forwardPage = async (page) => {
-    let data;
-    const _response = {};
-    let movieDataCopy = [];
-    if (movieAndPageCache.has(page)) {
-      data = movieAndPageCache.get(page);
+    if (map.has(value)) {
+      data = map.get(value);
+      const page = pageCache.get("page");
       setMovies(data);
+      setPage(page);
+      _response.ok = true;
     } else {
       try {
-        data = await fetch(`/api/movies/${searchTerm}/${page + 1}`, {
+        data = await fetch(url, {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
         });
-        const { Search, Response, Error } = await data.json();
+        const { Search, totalResults, Response, Error } = await data.json();
         if (Response === "True") {
           _response.ok = data.ok;
           movieDataCopy = Search;
-          movieAndPageCache.set(page, movieDataCopy);
+          map.set(value, movieDataCopy);
+          const count = Math.ceil(Number(totalResults) / 10);
+          setPage(count);
+          pageCache.set("page", count);
           setMovies([...Search]);
         } else {
           isError(Error);
@@ -103,13 +59,27 @@ function MainPage() {
           setMovies([...moviesFromLocalStorage]);
           setSearchTerm("");
           setPage(1);
-          setIsLoading(false);
-          setIsDisabled(true);
         }
       } catch (error) {
         console.log("error", error);
       }
     }
+    setIsLoading(false);
+    setIsDisabled(true);
+  }
+
+  const findMovie = async (e) => {
+    e.preventDefault();
+    if (searchTerm) {
+      setIsLoading(true);
+      const url = `/api/movies/${searchTerm}/${page}`;
+      cache(movieDataCache, url, searchTerm);
+    }
+  };
+
+  const forwardPage = async (page) => {
+    const url = `/api/movies/${searchTerm}/${page + 1}`;
+    cache(movieAndPageCache, url, page);
   };
 
   return (
