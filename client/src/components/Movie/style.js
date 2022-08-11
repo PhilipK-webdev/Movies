@@ -15,7 +15,7 @@ const Card = styled.div`
   flex-grow: ${(props) => (props.index === 1 || props.index === 5 ? "0" : "1")};
   cursor: pointer;
   @media only screen and (max-width: 84.375em) {
-    height: 34vh;
+    height: 30vh;
   }
   @media only screen and (max-width: 48em) {
     height: 30vh;
@@ -64,9 +64,10 @@ const CardInfo = styled.section`
   width: 5vw;
   display: flex;
   align-self: center;
-  min-height: 10vh;
+  min-height: 12vh;
   @media only screen and (max-width: 88.875em) {
     font-size: 10px;
+    min-height: 14vh;
   }
   @media only screen and (max-width: 48em) {
     font-size: 8px;
@@ -79,9 +80,10 @@ const CardRating = styled.div`
   font-size: 0.8rem;
   width: 5vw;
   margin-right: 3px;
-  min-height: 10vh;
+  min-height: 12vh;
   @media only screen and (max-width: 88.875em) {
     font-size: 10px;
+    min-height: 14vh;
   }
   @media only screen and (max-width: 48em) {
     width: 7vw;
