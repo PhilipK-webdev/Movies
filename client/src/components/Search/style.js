@@ -56,8 +56,7 @@ const TextInput = styled.input`
     width: 58vw;
   }
   @media only screen and (max-width: 37.5em) {
-    height: 3vh;
-    width: 30vw;
+    width: 36vw;
     font-size: 10px;
     padding-left: 0px;
     &::placeholder {
@@ -86,8 +85,8 @@ const Button = styled.button`
     height: 4.5vh;
   }
   @media only screen and (max-width: 37.5em) {
-    width: 20vw;
-    height: 3vh;
+    width: 14vw;
+    height: 4vh;
   }
 `;
 

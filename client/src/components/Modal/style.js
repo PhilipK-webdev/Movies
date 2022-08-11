@@ -42,11 +42,20 @@ const Body = styled.div`
   @media only screen and (max-width: 88.875em) {
     font-size: 15px;
   }
+  @media only screen and (max-width: 37.5em) {
+    font-size: 10px;
+  }
 `;
 
 const Top = styled.p`
   display: flex;
   margin-left: 10px;
+  @media only screen and (max-width: 64em) {
+    font-size: 15px;
+  }
+  @media only screen and (max-width: 37.5em) {
+    font-size: 12px;
+  }
 `;
 const ModalImage = styled.div`
   display: inline-block;
@@ -54,6 +63,9 @@ const ModalImage = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 60vh;
+  @media only screen and (max-width: 88.875em) {
+    height: 60vh;
+  }
   @media only screen and (max-width: 37.5em) {
     width: 100%;
     height: 60vh;
@@ -68,7 +80,15 @@ const Title = styled.div`
   display: flex;
   justify-content: center;
   @media only screen and (max-width: 88.875em) {
-    margin-bottom: 10px;
+    font-size: 25px;
+    line-height: 25px;
+    width: 30vw;
+  }
+  @media only screen and (max-width: 37.5em) {
+    margin-left: 10px;
+    font-size: 18px;
+    line-height: 18px;
+    width: 30vw;
   }
 `;
 const Description = styled.p`
@@ -78,9 +98,24 @@ const Description = styled.p`
   padding-top: 16px;
   margin-left: 10px;
   font: normal normal normal 1.875rem/1.875rem Georgia;
+  &::-webkit-scrollbar {
+    width: 0.3rem;
+    border: 1px solid grey;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(126, 134, 150);
+  }
   @media only screen and (max-width: 88.875em) {
     font-size: 15px;
     line-height: 20px;
+  }
+  @media only screen and (max-width: 64em) {
+    font-size: 10px;
+  }
+  }
+  @media only screen and (max-width: 37.5em) {
+    font-size: 14px;
   }
 `;
 
