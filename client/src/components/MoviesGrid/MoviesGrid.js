@@ -3,6 +3,7 @@ import Movie from "../Movie/Movie";
 import { useMovieContext } from "../../hooks/useMovieContext";
 import S from "./style";
 import Modal from "../Modal/Modal";
+
 const movieDataCache = new Map();
 function MoviesGrid() {
   const [getters, setters] = useMovieContext();

@@ -19,9 +19,7 @@ const Container = styled.div`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   justify-content: space-around;
-  border: 1px solid;
   padding: 25px;
-
   & > img {
     height: 490px;
   }
@@ -31,50 +29,66 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid;
   flex: 50% 0;
   height: 100%;
   align-items: initial;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   text-align: initial;
-`;
-
-const Top = styled.div`
-  border: 1px solid red;
-  & > * {
-    margin-bottom: 10px;
-    margin-top: 10px;
+  @media only screen and (max-width: 88.875em) {
+    font-size: 15px;
   }
 `;
+
+const Top = styled.p`
+  display: flex;
+  margin-left: 10px;
+`;
 const ModalImage = styled.div`
-  border: 1px solid green;
-  height: 35rem;
-  width: 30rem;
+  display: inline-block;
 `;
 const Image = styled.img`
-  height: 490px;
+  width: 100%;
+  height: 60vh;
 `;
 const Title = styled.div`
   font: normal normal bold 2.8125rem/2.8125rem Arial;
   letter-spacing: 0px;
   color: #000000;
   text-transform: uppercase;
-  border: 1px solid green;
+  width: 39vw;
+  display: flex;
+  justify-content: center;
+  @media only screen and (max-width: 88.875em) {
+    margin-bottom: 10px;
+  }
 `;
-const Description = styled.div`
+const Description = styled.p`
   overflow: auto;
   height: 100%;
   max-height: 290px;
   padding-top: 16px;
+  margin-left: 10px;
   font: normal normal normal 1.875rem/1.875rem Georgia;
-  border: 1px solid orange;
+  @media only screen and (max-width: 88.875em) {
+    font-size: 15px;
+    line-height: 20px;
+  }
 `;
 
 const Button = styled.button`
-  width: 5rem;
-  height: 2rem;
   display: flex;
-  align-self: flex-end;
+  justify-content: center;
+  height: 7vh;
+  align-items: center;
+  border: none;
+  font-size: 1.3rem;
+  background-color: #ff206f;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  @media only screen and (max-width: 88.875em) {
+    font-size: 1rem;
+  }
 `;
 export default {
   Modal,

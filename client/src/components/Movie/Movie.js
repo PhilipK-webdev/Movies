@@ -9,14 +9,17 @@ function Movie({ imdbID, title, rating, image, year, onMovieClick }) {
       <S.ImageContainer>
         <S.CardImage src={imgSrc ? imgSrc : defaultImg} onError={onError} />
       </S.ImageContainer>
+
       <S.CardContainer>
-        <S.CardTitle>{title}</S.CardTitle>
+        <S.DivContainer>
+          <S.CardTitle>{title}</S.CardTitle>
+          <S.BtnReadMore onClick={() => onMovieClick(imdbID)}>
+            More
+          </S.BtnReadMore>
+        </S.DivContainer>
         <S.Div>
           {year && <S.CardInfo>Year: {year}</S.CardInfo>}
           {rating && <S.CardRating>Rating: {rating}</S.CardRating>}
-          <S.BtnReadMore onClick={() => onMovieClick(imdbID)}>
-            Read more
-          </S.BtnReadMore>
         </S.Div>
       </S.CardContainer>
     </S.Card>

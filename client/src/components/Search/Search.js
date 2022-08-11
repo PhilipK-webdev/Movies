@@ -1,6 +1,7 @@
 import React from "react";
 import S from "./style";
-function Search({ searchValue, onSearch, onSubmit }) {
+import { SpinnerCircularFixed } from "spinners-react";
+function Search({ searchValue, onSearch, onSubmit, isLoading, isDisabled }) {
   return (
     <S.Container>
       <S.From onSubmit={onSubmit}>
@@ -10,7 +11,22 @@ function Search({ searchValue, onSearch, onSubmit }) {
           value={searchValue}
           onChange={onSearch}
         />
-        <S.Button type="submit" value="Search" onClick={onSubmit} />
+        <S.Button
+          type="submit"
+          onClick={onSubmit}
+          isDisabled={isDisabled}
+          boolean={isLoading}
+        >
+          Search{" "}
+          <SpinnerCircularFixed
+            enabled={isLoading}
+            size={"30px"}
+            thickness={101}
+            speed={100}
+            color="rgba(255, 255, 255, 1)"
+            secondaryColor="rgba(255, 32, 111, 1)"
+          />
+        </S.Button>
       </S.From>
     </S.Container>
   );

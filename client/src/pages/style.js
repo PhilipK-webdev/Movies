@@ -3,13 +3,50 @@ import styled from "styled-components";
 const Container = styled.div`
   overflow-y: hidden;
   overflow-x: hidden;
+  min-height: 100vh;
+  @media only screen and (max-width: 118.75em) {
+  }
+  @media only screen and (max-width: 106.25em) {
+  }
+  @media only screen and (max-width: 88.875em) {
+  }
+  @media only screen and (max-width: 75.25em) {
+  }
+  @media only screen and (max-width: 55.375em) {
+  }
+  @media only screen and (max-width: 37.5em) {
+  }
 `;
 
 const Main = styled.div`
-  width: 100vw;
+  width: 73vw;
   height: 80vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1vh;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%),
+    inset -152px -24px 141px -67px rgb(0 0 0 / 18%);
+  &::-webkit-scrollbar {
+    width: 0.3rem;
+    border: 1px solid grey;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(126, 134, 150);
+  }
+  @media only screen and (max-width: 118.75em) {
+  }
   @media only screen and (max-width: 106.25em) {
-    overflow-y: auto;
+  }
+  @media only screen and (max-width: 88.875em) {
+    height: 83vh;
+  }
+  @media only screen and (max-width: 75.25em) {
+  }
+  @media only screen and (max-width: 55.375em) {
+  }
+  @media only screen and (max-width: 37.5em) {
   }
 `;
 

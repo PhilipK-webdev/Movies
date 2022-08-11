@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import S from "./style";
+import defaultImg from "../../assets/no-picture.jpg";
 function Modal({ setOpenModal, data }) {
-  const { largeimage, title, synopsis, runtime, rating } = data;
-  console.log("data", data);
+  const { Poster, Title, Plot, Awards, Actors } = data;
+  const [imgSrc, setImgSrc] = useState(Poster);
+  const onError = () => setImgSrc(defaultImg);
   return (
     <S.Modal>
       <S.Container>
         <S.ModalImage>
-          <S.Image />
+          <S.Image src={imgSrc ? imgSrc : defaultImg} onError={onError} />
         </S.ModalImage>
         <S.Body>
-          <S.Title>dsaasdd</S.Title>
-          <S.Top>dsad</S.Top>
-          <S.Description>dasdsa</S.Description>
+          <S.Title>{Title}</S.Title>
+          <S.Top>Awards: {Awards}</S.Top>
+          <S.Top>Actors: {Actors}</S.Top>
+          <S.Description>
+            Plot:
+            <br />
+            {Plot}
+          </S.Description>
           <S.Button onClick={setOpenModal}>Back To List</S.Button>
         </S.Body>
       </S.Container>

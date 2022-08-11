@@ -1,33 +1,53 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 85vw;
-  height: 5vh;
+  width: 61vw;
+  height: 3vh;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  margin-top: -2vh;
+  @media only screen and (max-width: 118.75em) {
+  }
+  @media only screen and (max-width: 106.25em) {
+  }
+  @media only screen and (max-width: 88.875em) {
+    height: 4vh;
+    margin-top: -3vh;
+  }
+  @media only screen and (max-width: 75.25em) {
+  }
+  @media only screen and (max-width: 55.375em) {
+  }
+  @media only screen and (max-width: 37.5em) {
+  }
 `;
 
 const From = styled.form`
-  @media only screen and (max-width: 56.25em) {
-    display: flex;
-    jusitfy-content: center;
-    align-items: center;
-    flex-direction: row;
-    height: 13vh;
+  display: flex;
+  @media only screen and (max-width: 118.75em) {
+  }
+  @media only screen and (max-width: 106.25em) {
+  }
+  @media only screen and (max-width: 88.875em) {
+  }
+  @media only screen and (max-width: 75.25em) {
+  }
+  @media only screen and (max-width: 55.375em) {
+  }
+  @media only screen and (max-width: 37.5em) {
   }
 `;
 const TextInput = styled.input`
-  border: 0;
-  width: 70vw;
+  width: 55vw;
+  height: 5vh;
   padding: 12px;
   padding-left: 40px;
-  border-radius: 10px;
-  margin: 1rem 1rem;
   color: black;
   font-size: 1rem;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 1px solid rgba(214, 25, 105, 0.5);
   &:focus {
     outline: none;
     box-shadow: 0 0 0.5rem gray;
@@ -37,25 +57,49 @@ const TextInput = styled.input`
     color: black;
   }
 
-  @media only screen and (max-width: 56.25em) {
-    // width: 50vw;
-    // margin-right: 1rem;
+  @media only screen and (max-width: 118.75em) {
+  }
+  @media only screen and (max-width: 106.25em) {
+  }
+  @media only screen and (max-width: 88.875em) {
+    &::placeholder {
+      font-size: 15px;
+      color: black;
+    }
+  }
+  @media only screen and (max-width: 75.25em) {
+  }
+  @media only screen and (max-width: 55.375em) {
+  }
+  @media only screen and (max-width: 37.5em) {
   }
 `;
-const Button = styled.input`
-  width: 6vw;
-  border-radius: 10px;
+const Button = styled.button`
+  width: 5vw;
   border: none;
-  background-color: #ff206f;
+  background-color: ${(props) => (props.isDisabled ? "#DDE7F0" : "#FF206F")};
   color: white;
   font-size: 1rem;
   cursor: pointer;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  @media only screen and (max-width: 56.25em) {
-    text-align: center;
-    width: 13vw;
-    margin-top: 0.3rem;
+  height: 5vh;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  justify-content: ${(props) => (props.boolean ? "space-between" : "center")};
+  align-items: center;
+  @media only screen and (max-width: 118.75em) {
+  }
+  @media only screen and (max-width: 106.25em) {
+  }
+  @media only screen and (max-width: 88.875em) {
+    font-size: 12px;
+    width: 6vw;
+  }
+  @media only screen and (max-width: 75.25em) {
+  }
+  @media only screen and (max-width: 55.375em) {
+  }
+  @media only screen and (max-width: 37.5em) {
   }
 `;
 

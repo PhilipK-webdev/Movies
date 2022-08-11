@@ -1,59 +1,30 @@
 import styled from "styled-components";
 
 const Card = styled.div`
-  height: 18rem;
+  height: 34vh;
+  width: 10vw;
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 18rem;
   background: #0d0d0d;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin-top: 2vh;
   margin-right: 5px;
   color: white;
   flex-grow: ${(props) => (props.index === 1 || props.index === 5 ? "0" : "1")};
   cursor: pointer;
   @media only screen and (max-width: 118.75em) {
-    height: 13rem;
-    width: 18rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
   }
   @media only screen and (max-width: 106.25em) {
-    // height: 25vh;
-    width: 15rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
   }
   @media only screen and (max-width: 88.875em) {
-    height: 13rem;
-    width: 13rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
   }
   @media only screen and (max-width: 75.25em) {
-    height: 13rem;
-    width: 10rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: -1rem;
-    margin-top: 1rem;
   }
   @media only screen and (max-width: 55.375em) {
-    height: 13rem;
-    width: 10rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: -1rem;
-    margin-top: 1rem;
+  }
+  @media only screen and (max-width: 37.5em) {
   }
 `;
 const ImageContainer = styled.div`
@@ -61,31 +32,28 @@ const ImageContainer = styled.div`
 `;
 const CardContainer = styled.div`
   display: flex;
-  height: 3rem;
-  padding: 0.5rem;
+  height: 14vh;
   justify-content: center;
   flex-direction: column;
+  padding: 10px;
 `;
 const CardTitle = styled.header`
   font-size: 0.8rem;
   font-weight: bold;
   font-weight: bold;
-  @media only screen and (max-width: 106.5625em) {
-    font-size: 0.7rem;
+  @media only screen and (max-width: 118.75em) {
+  }
+  @media only screen and (max-width: 106.25em) {
   }
   @media only screen and (max-width: 88.875em) {
-    width: 10rem;
-    font-size: 0.7rem;
+    font-size: 10px;
+    width: 7vw;
   }
-  @media only screen and (max-width: 68.75em) {
-    width: 10rem;
-    font-size: 0.7rem;
+  @media only screen and (max-width: 75.25em) {
   }
   @media only screen and (max-width: 55.375em) {
-    font-size: 0.7rem;
   }
   @media only screen and (max-width: 37.5em) {
-    font-size: 0.7rem;
   }
 `;
 const Div = styled.div`
@@ -94,83 +62,87 @@ const Div = styled.div`
   justify-content: space-between;
 `;
 const CardInfo = styled.section`
-  font-size: 1rem;
-  margin-right: 1rem;
-  &::-webkit-scrollbar {
-    width: 0.3rem;
-    border: 1px solid grey;
+  font-size: 0.8rem;
+  margin-right: 10px;
+  order: 1px solid white;
+  width: 5vw;
+  display: flex;
+  align-self: center;
+  @media only screen and (max-width: 118.75em) {
   }
-
-  &::-webkit-scrollbar-thumb {
-    background: rgb(126, 134, 150);
+  @media only screen and (max-width: 106.25em) {
   }
-  // @media only screen and (max-width: 118.75em) {
-  //   width: 5rem;
-  //   height: 18rem;
-  // }
-  // @media only screen and (max-width: 106.5625em) {
-  //   width: 8rem;
-  //   height: 20rem;
-  // }
-  // @media only screen and (max-width: 88.875em) {
-  //   height: 18rem;
-  //   width: 8rem;
-  //   overflow: auto;
-  // }
+  @media only screen and (max-width: 88.875em) {
+    font-size: 10px;
+  }
   @media only screen and (max-width: 75.25em) {
-    font-size: 0.8rem;
   }
-  // @media only screen and (max-width: 68.75em) {
-  //   height: 10vh;
-  //   width: auto;
-  //   font-size: 1rem;
-  // }
-  // @media only screen and (max-width: 55.375em) {
-  //   height: auto;
-  // }
+  @media only screen and (max-width: 55.375em) {
+  }
+  @media only screen and (max-width: 37.5em) {
+  }
 `;
 const CardRating = styled.div`
-  font-size: 1rem;
-  @media only screen and (max-width: 68.75em) {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
+  width: 5vw;
+  margin-right: 3px;
+  @media only screen and (max-width: 118.75em) {
   }
-  // @media only screen and (max-width: 55.375em) {
-  //   font-size: 0.8rem;
-  // }
+  @media only screen and (max-width: 106.25em) {
+  }
+  @media only screen and (max-width: 88.875em) {
+    font-size: 10px;
+  }
+  @media only screen and (max-width: 75.25em) {
+  }
+  @media only screen and (max-width: 55.375em) {
+  }
+  @media only screen and (max-width: 37.5em) {
+  }
 `;
 
 const CardImage = styled.img`
   width: 100%;
-  height: 14rem;
+  height: 25vh;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 
   @media only screen and (max-width: 118.75em) {
-    height: 8rem;
+  }
+  @media only screen and (max-width: 106.25em) {
+  }
+  @media only screen and (max-width: 88.875em) {
+    height: 20vh;
   }
   @media only screen and (max-width: 75.25em) {
-    height: 8rem;
   }
-  @media only screen and (max-width: 56.25em) {
-    height: 8rem;
+  @media only screen and (max-width: 55.375em) {
   }
   @media only screen and (max-width: 37.5em) {
-    height: 8rem;
   }
 `;
 
 const BtnReadMore = styled.button`
-  margin-left: 1rem;
   border: none;
-  background: white;
-  color: black;
-  font-size: 1rem;
+  background: transparent;
+  color: white;
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
   cursor: pointer;
   border-radius: 5px;
   font-weight: 600;
-  height: 1.5rem;
+  margin-top: 2px;
+  margin-right: -7px;
+  @media only screen and (max-width: 88.875em) {
+    font-size: 10px;
+    margin-top: 3px;
+  }
+`;
+
+const DivContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 `;
 export default {
   Card,
@@ -182,4 +154,5 @@ export default {
   CardImage,
   Div,
   BtnReadMore,
+  DivContainer,
 };
