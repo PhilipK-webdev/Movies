@@ -14,8 +14,16 @@ const Card = styled.div`
   color: white;
   flex-grow: ${(props) => (props.index === 1 || props.index === 5 ? "0" : "1")};
   cursor: pointer;
+  @media only screen and (max-width: 118.75em) {
+  }
+  @media only screen and (max-width: 106.25em) {
+  }
   @media only screen and (max-width: 84.375em) {
     height: 28vh;
+  }
+  @media only screen and (max-width: 75.25em) {
+  }
+  @media only screen and (max-width: 55.375em) {
   }
   @media only screen and (max-width: 48em) {
     height: 30vh;
@@ -95,6 +103,9 @@ const CardImage = styled.img`
 
   @media only screen and (max-width: 88.875em) {
     height: 20vh;
+  }
+  @media only screen and (max-width: 75.25em) {
+    height: 15vh;
   }
   @media only screen and (max-width: 48em) {
     height: 18vh;

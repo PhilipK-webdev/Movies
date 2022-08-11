@@ -7,17 +7,9 @@ const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: -2vh;
-  @media only screen and (max-width: 118.75em) {
-  }
-  @media only screen and (max-width: 106.25em) {
-  }
   @media only screen and (max-width: 90em) {
     height: 4vh;
     margin-top: -3vh;
-  }
-  @media only screen and (max-width: 75.25em) {
-  }
-  @media only screen and (max-width: 55.375em) {
   }
   @media only screen and (max-width: 37.5em) {
     width: 50vw;
@@ -26,18 +18,6 @@ const Container = styled.div`
 
 const From = styled.form`
   display: flex;
-  @media only screen and (max-width: 118.75em) {
-  }
-  @media only screen and (max-width: 106.25em) {
-  }
-  @media only screen and (max-width: 88.875em) {
-  }
-  @media only screen and (max-width: 75.25em) {
-  }
-  @media only screen and (max-width: 55.375em) {
-  }
-  @media only screen and (max-width: 37.5em) {
-  }
 `;
 const TextInput = styled.input`
   width: 55vw;
@@ -62,6 +42,15 @@ const TextInput = styled.input`
       font-size: 15px;
       color: black;
     }
+  }
+  @media only screen and (max-width: 64em) {
+    width: 55vw;
+  }
+  @media only screen and (max-width: 55.375em) {
+    width: 58vw;
+  }
+  @media only screen and (max-width: 48em) {
+    width: 58vw;
   }
   @media only screen and (max-width: 37.5em) {
     height: 3vh;

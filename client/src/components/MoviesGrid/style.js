@@ -9,20 +9,21 @@ const MoviesContainer = styled.div`
   margin: 5px auto;
   justify-items: center;
   grid-gap: 25px;
-  @media only screen and (max-width: 90em) {
-    grid-gap: 15px;
-  }
-  @media only screen and (max-width: 84.375em) {
-    grid-gap: 20px;
+  @media only screen and (max-width: 88.875em) {
+    width: 64vw;
   }
   @media only screen and (max-width: 64em) {
-    grid-gap: 25px;
+    width: 60vw;
+    grid-gap: 15px;
   }
   @media only screen and (max-width: 55.375em) {
-    width: 85vw;
+    width: 57vw;
+
+    grid-gap: 10px;
   }
   @media only screen and (max-width: 48em) {
     width: 75vw;
+    grid-gap: 5px;
   }
   @media only screen and (max-width: 37.5em) {
     display: grid;
