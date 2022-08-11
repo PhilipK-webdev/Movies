@@ -21,6 +21,10 @@ const Container = styled.div`
   width: 30vw;
   margin-left: auto;
   margin-right: auto;
+
+  @media only screen and (max-width: 88.875em) {
+    justify-content: ${(props) => (props.size < 10 ? "center" : "flex-start")};
+  }
 `;
 
 const Page = styled.span`
@@ -29,6 +33,9 @@ const Page = styled.span`
   text-decoration: underline;
   cursor: pointer;
   color: ${(props) => (props.currentPage === props.index ? "red" : "black")};
+  @media only screen and (max-width: 88.875em) {
+    font-size: 12px;
+  }
 `;
 
 export default { Container, Page };

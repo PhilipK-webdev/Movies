@@ -12,10 +12,14 @@ const Text = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 5px;
+
   font-size: ${(props) => props.size};
   font-weight: 300;
   color: white;
+  @media only screen and (max-width: 88.875em) {
+    font-size: 12px;
+    padding-top: 0px;
+  }
 `;
 
 export default { Footer, Text };
