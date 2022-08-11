@@ -3,7 +3,7 @@ import Movie from "../Movie/Movie";
 import { useMovieContext } from "../../hooks/useMovieContext";
 import S from "./style";
 import Modal from "../Modal/Modal";
-
+import Loading from "../../assets/loading.gif";
 const movieDataCache = new Map();
 function MoviesGrid() {
   const [getters, setters] = useMovieContext();
@@ -44,10 +44,8 @@ function MoviesGrid() {
   };
   return (
     <S.MoviesContainer>
-      {movieData && (
-        <Modal setOpenModal={() => setMovieData(null)} data={movieData} />
-      )}
-      {Object.keys(movies).length > 0 &&
+      {movieData && <Modal setOpenModal={setMovieData} data={movieData} />}
+      {Object.keys(movies).length > 0 ? (
         movies.map((movie) => {
           return (
             <Movie
@@ -60,7 +58,12 @@ function MoviesGrid() {
               imdbID={movie.imdbID}
             />
           );
-        })}
+        })
+      ) : (
+        <S.ImageContainer>
+          <img src={Loading} width={125} />
+        </S.ImageContainer>
+      )}
     </S.MoviesContainer>
   );
 }

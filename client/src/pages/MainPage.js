@@ -13,10 +13,12 @@ const pageCache = new Map();
 const movieAndPageCache = new Map();
 function MainPage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [page, setPage] = useState(() => 1);
+  const [lastSearch, setLastSearch] = useState("");
+  const [pages, setPage] = useState(() => 1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
-  const [error, isError] = useState("");
+  const [error, isSetError] = useState("");
   const [, setters] = useMovieContext();
   const { setMovies } = setters;
   const [moviesFromLocalStorage, setMoviesFromLocalStorage] = useLocalStorage(
@@ -24,70 +26,107 @@ function MainPage() {
     {}
   );
 
-  async function cache(map, url, value) {
+  const findMovie = async (e) => {
+    e.preventDefault();
+    let data;
+    let movieDataCopy = [];
+    if (searchTerm) {
+      setIsLoading(true);
+      setCurrentPage(0);
+      setPage(1);
+      if (movieDataCache.has(searchTerm)) {
+        data = movieDataCache.get(searchTerm);
+        const page = pageCache.get(searchTerm);
+        setLastSearch(searchTerm);
+        setMovies(data);
+        setPage(page);
+      } else {
+        try {
+          data = await fetch(`/api/movies/${searchTerm}/${1}`, {
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          });
+          const { Search, totalResults, Response, Error } = await data.json();
+          if (Response === "True") {
+            movieDataCopy = Search;
+            movieDataCache.set(searchTerm, movieDataCopy);
+            const count = Math.ceil(Number(totalResults) / 10);
+            setPage(count);
+            pageCache.set(searchTerm, count);
+            setMovies([...Search]);
+            setLastSearch(searchTerm);
+          } else {
+            isSetError(Error);
+            setTimeout(() => {
+              isSetError("");
+            }, 2000);
+            setMovies([...moviesFromLocalStorage]);
+            setSearchTerm("");
+            setPage(1);
+            setLastSearch("");
+          }
+        } catch (error) {
+          console.log("error", error);
+        }
+      }
+    }
+    setIsLoading(false);
+    setIsDisabled(true);
+  };
+
+  const forwardBackPage = async (page) => {
     let data;
     const _response = {};
     let movieDataCopy = [];
-    if (map.has(value)) {
-      data = map.get(value);
-      const page = pageCache.get("page");
+    const key = lastSearch + page;
+    if (movieAndPageCache.has(key)) {
+      data = movieAndPageCache.get(key);
       setMovies(data);
-      setPage(page);
-      _response.ok = true;
+      setCurrentPage(page);
     } else {
       try {
-        data = await fetch(url, {
+        data = await fetch(`/api/movies/${lastSearch}/${page + 1}`, {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
         });
-        const { Search, totalResults, Response, Error } = await data.json();
+        const { Search, Response, Error } = await data.json();
         if (Response === "True") {
           _response.ok = data.ok;
           movieDataCopy = Search;
-          map.set(value, movieDataCopy);
-          const count = Math.ceil(Number(totalResults) / 10);
-          setPage(count);
-          pageCache.set("page", count);
+          movieAndPageCache.set(key, movieDataCopy);
           setMovies([...Search]);
+          setCurrentPage(page);
         } else {
-          isError(Error);
+          isSetError(Error);
           setTimeout(() => {
-            isError("");
+            isSetError("");
           }, 2000);
           setMovies([...moviesFromLocalStorage]);
           setSearchTerm("");
           setPage(1);
+          setIsLoading(false);
+          setIsDisabled(true);
+          setCurrentPage(0);
         }
       } catch (error) {
         console.log("error", error);
       }
     }
-    setIsLoading(false);
-    setIsDisabled(true);
-  }
-
-  const findMovie = async (e) => {
-    e.preventDefault();
-    if (searchTerm) {
-      setIsLoading(true);
-      const url = `/api/movies/${searchTerm}/${page}`;
-      cache(movieDataCache, url, searchTerm);
-    }
   };
-
-  const forwardPage = async (page) => {
-    const url = `/api/movies/${searchTerm}/${page + 1}`;
-    cache(movieAndPageCache, url, page);
-  };
-
   return (
     <S.Container>
       <Header />
       <S.Main>
         {error && <Alert title={error} />}
-        <Pagination page={page} onClick={forwardPage} />
+        <Pagination
+          pages={pages}
+          onClick={forwardBackPage}
+          currentPage={currentPage}
+        />
         <Search
           isLoading={isLoading}
           isDisabled={isDisabled}
@@ -102,6 +141,7 @@ function MainPage() {
               setPage(1);
               setIsLoading(false);
               setIsDisabled(true);
+              setCurrentPage(0);
             }
           }}
           onSubmit={(e) => findMovie(e)}

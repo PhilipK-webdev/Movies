@@ -40,4 +40,9 @@ const Main = styled.div`
   }
 `;
 
-export default { Container, Main };
+const ImageContainer = styled.div`
+  position: absolute;
+  margin-top: 17vh;
+`;
+
+export default { Container, Main, ImageContainer };

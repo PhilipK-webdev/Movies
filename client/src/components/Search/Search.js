@@ -7,7 +7,7 @@ function Search({ searchValue, onSearch, onSubmit, isLoading, isDisabled }) {
       <S.From onSubmit={onSubmit}>
         <S.TextInput
           type="text"
-          placeholder="Enter movie"
+          placeholder="Enter a movie"
           value={searchValue}
           onChange={onSearch}
         />
@@ -16,6 +16,7 @@ function Search({ searchValue, onSearch, onSubmit, isLoading, isDisabled }) {
           onClick={onSubmit}
           isDisabled={isDisabled}
           boolean={isLoading}
+          searchValue={searchValue}
         >
           Search{" "}
           <SpinnerCircularFixed

@@ -32,4 +32,9 @@ const MoviesContainer = styled.div`
     width: 33vw;
   }
 `;
-export default { MoviesContainer };
+
+const ImageContainer = styled.div`
+  position: absolute;
+  margin-top: 17vh;
+`;
+export default { MoviesContainer, ImageContainer };

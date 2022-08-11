@@ -31,7 +31,7 @@ function Modal({ setOpenModal, data }) {
             <br />
             {Plot}
           </S.Description>
-          <S.Button onClick={setOpenModal}>Back To List</S.Button>
+          <S.Button onClick={() => setOpenModal(null)}>Back To List</S.Button>
         </S.Body>
       </S.Container>
     </S.Modal>

@@ -6,7 +6,7 @@ const Container = styled.div`
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -2vh;
+  margin-top: -1vh;
   @media only screen and (max-width: 90em) {
     height: 4vh;
     margin-top: -3vh;
@@ -34,10 +34,13 @@ const TextInput = styled.input`
     box-shadow: 0 0 0.5rem gray;
   }
   &::placeholder {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: black;
   }
   @media only screen and (max-width: 88.875em) {
+    font-size: 15px;
+    height: 4.5vh;
+    margin-top: 1vh;
     &::placeholder {
       font-size: 15px;
       color: black;
@@ -69,7 +72,7 @@ const Button = styled.button`
   background-color: ${(props) => (props.isDisabled ? "#DDE7F0" : "#FF206F")};
   color: white;
   font-size: 1rem;
-  cursor: pointer;
+  cursor: ${(props) => (props.isDisabled ? "unset" : "pointer")};
   height: 5vh;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -79,6 +82,8 @@ const Button = styled.button`
   @media only screen and (max-width: 88.875em) {
     font-size: 12px;
     width: 6vw;
+    margin-top: 1vh;
+    height: 4.5vh;
   }
   @media only screen and (max-width: 37.5em) {
     width: 20vw;
